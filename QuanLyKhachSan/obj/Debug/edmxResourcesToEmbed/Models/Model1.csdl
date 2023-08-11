@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLKhachSanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLKhachSanEntities11" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="chitietphieuthue" EntityType="QLKhachSanModel.chitietphieuthue" />
+    <EntitySet Name="chitiethoadon" EntityType="QLKhachSanModel.chitiethoadon" />
+    <EntitySet Name="doanhthu" EntityType="QLKhachSanModel.doanhthu" />
+    <EntitySet Name="hoadon" EntityType="QLKhachSanModel.hoadon" />
+    <EntitySet Name="khachhang" EntityType="QLKhachSanModel.khachhang" />
+    <EntitySet Name="loaikhach" EntityType="QLKhachSanModel.loaikhach" />
+    <EntitySet Name="loaiphong" EntityType="QLKhachSanModel.loaiphong" />
+    <EntitySet Name="matdosudung" EntityType="QLKhachSanModel.matdosudung" />
+    <EntitySet Name="phieuthue" EntityType="QLKhachSanModel.phieuthue" />
+    <EntitySet Name="phong" EntityType="QLKhachSanModel.phong" />
+    <EntitySet Name="phuthu" EntityType="QLKhachSanModel.phuthu" />
+    <EntitySet Name="taikhoan" EntityType="QLKhachSanModel.taikhoan" />
+    <AssociationSet Name="chitietphieuthue_FK_CTPhieuThue_PhieuThue" Association="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_PhieuThue">
+      <End Role="phieuthue" EntitySet="phieuthue" />
+      <End Role="chitietphieuthue" EntitySet="chitietphieuthue" />
+    </AssociationSet>
+    <AssociationSet Name="chitietphieuthue_FK_CTPhieuThue_Phong" Association="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_Phong">
+      <End Role="phong" EntitySet="phong" />
+      <End Role="chitietphieuthue" EntitySet="chitietphieuthue" />
+    </AssociationSet>
+    <AssociationSet Name="chitietphieuthue_FK_CTPhieuThue_PhuThu" Association="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_PhuThu">
+      <End Role="phuthu" EntitySet="phuthu" />
+      <End Role="chitietphieuthue" EntitySet="chitietphieuthue" />
+    </AssociationSet>
+    <AssociationSet Name="chitiethoadon_FK_CTHoaDon_PhuThu" Association="QLKhachSanModel.chitiethoadon_FK_CTHoaDon_PhuThu">
+      <End Role="phuthu" EntitySet="phuthu" />
+      <End Role="chitiethoadon" EntitySet="chitiethoadon" />
+    </AssociationSet>
+    <AssociationSet Name="chitiethoadon_FK_ChiTietHoaDon_HoaDon" Association="QLKhachSanModel.chitiethoadon_FK_ChiTietHoaDon_HoaDon">
+      <End Role="hoadon" EntitySet="hoadon" />
+      <End Role="chitiethoadon" EntitySet="chitiethoadon" />
+    </AssociationSet>
+    <AssociationSet Name="chitiethoadon_FK_ChiTietHoaDon_Phong" Association="QLKhachSanModel.chitiethoadon_FK_ChiTietHoaDon_Phong">
+      <End Role="phong" EntitySet="phong" />
+      <End Role="chitiethoadon" EntitySet="chitiethoadon" />
+    </AssociationSet>
+    <AssociationSet Name="doanhthu_DoanhThu_LoaiPhong" Association="QLKhachSanModel.doanhthu_DoanhThu_LoaiPhong">
+      <End Role="loaiphong" EntitySet="loaiphong" />
+      <End Role="doanhthu" EntitySet="doanhthu" />
+    </AssociationSet>
+    <AssociationSet Name="hoadon_HoaDon_PhieuThue" Association="QLKhachSanModel.hoadon_HoaDon_PhieuThue">
+      <End Role="phieuthue" EntitySet="phieuthue" />
+      <End Role="hoadon" EntitySet="hoadon" />
+    </AssociationSet>
+    <AssociationSet Name="hoadon_HoaDon_TaiKhoan" Association="QLKhachSanModel.hoadon_HoaDon_TaiKhoan">
+      <End Role="taikhoan" EntitySet="taikhoan" />
+      <End Role="hoadon" EntitySet="hoadon" />
+    </AssociationSet>
+    <AssociationSet Name="khachhang_KhachHang_LoaiKhach" Association="QLKhachSanModel.khachhang_KhachHang_LoaiKhach">
+      <End Role="loaikhach" EntitySet="loaikhach" />
+      <End Role="khachhang" EntitySet="khachhang" />
+    </AssociationSet>
+    <AssociationSet Name="phieuthue_PhieuThue_KhachHang" Association="QLKhachSanModel.phieuthue_PhieuThue_KhachHang">
+      <End Role="khachhang" EntitySet="khachhang" />
+      <End Role="phieuthue" EntitySet="phieuthue" />
+    </AssociationSet>
+    <AssociationSet Name="phong_Phong_LoaiPhong" Association="QLKhachSanModel.phong_Phong_LoaiPhong">
+      <End Role="loaiphong" EntitySet="loaiphong" />
+      <End Role="phong" EntitySet="phong" />
+    </AssociationSet>
+    <AssociationSet Name="matdosudung_MatDoSuDung_Phong" Association="QLKhachSanModel.matdosudung_MatDoSuDung_Phong">
+      <End Role="phong" EntitySet="phong" />
+      <End Role="matdosudung" EntitySet="matdosudung" />
+    </AssociationSet>
+    <AssociationSet Name="phieuthue_PhieuThue_TaiKhoan" Association="QLKhachSanModel.phieuthue_PhieuThue_TaiKhoan">
+      <End Role="taikhoan" EntitySet="taikhoan" />
+      <End Role="phieuthue" EntitySet="phieuthue" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="chitietphieuthue">
+    <Key>
+      <PropertyRef Name="MaPhieuThue" />
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhieuThue" Type="Int32" Nullable="false" />
+    <Property Name="MaPhong" Type="Int32" Nullable="false" />
+    <Property Name="PhuThu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SLKhach" Type="Int32" />
+    <Property Name="NgayThue" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayTraPhong" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="phieuthue" Relationship="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_PhieuThue" FromRole="chitietphieuthue" ToRole="phieuthue" />
+    <NavigationProperty Name="phong" Relationship="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_Phong" FromRole="chitietphieuthue" ToRole="phong" />
+    <NavigationProperty Name="phuthu1" Relationship="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_PhuThu" FromRole="chitietphieuthue" ToRole="phuthu" />
+  </EntityType>
+  <EntityType Name="chitiethoadon">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaHoaDon" Type="Int32" Nullable="false" />
+    <Property Name="MaPhong" Type="Int32" Nullable="false" />
+    <Property Name="PhuThu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThanhTien" Type="Single" />
+    <Property Name="SLKhach" Type="Int32" />
+    <NavigationProperty Name="phuthu1" Relationship="QLKhachSanModel.chitiethoadon_FK_CTHoaDon_PhuThu" FromRole="chitiethoadon" ToRole="phuthu" />
+    <NavigationProperty Name="hoadon" Relationship="QLKhachSanModel.chitiethoadon_FK_ChiTietHoaDon_HoaDon" FromRole="chitiethoadon" ToRole="hoadon" />
+    <NavigationProperty Name="phong" Relationship="QLKhachSanModel.chitiethoadon_FK_ChiTietHoaDon_Phong" FromRole="chitiethoadon" ToRole="phong" />
+  </EntityType>
+  <EntityType Name="doanhthu">
+    <Key>
+      <PropertyRef Name="LoaiPhong" />
+    </Key>
+    <Property Name="LoaiPhong" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Thang" Type="DateTime" Precision="0" />
+    <Property Name="DoanhThu1" Type="Single" />
+    <NavigationProperty Name="loaiphong1" Relationship="QLKhachSanModel.doanhthu_DoanhThu_LoaiPhong" FromRole="doanhthu" ToRole="loaiphong" />
+  </EntityType>
+  <EntityType Name="hoadon">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhieuThue" Type="Int32" />
+    <Property Name="SoNgayThue" Type="Int32" />
+    <Property Name="TongTien" Type="Single" />
+    <Property Name="NgayThanhToan" Type="DateTime" Precision="0" />
+    <Property Name="NVTao" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="chitiethoadon" Relationship="QLKhachSanModel.chitiethoadon_FK_ChiTietHoaDon_HoaDon" FromRole="hoadon" ToRole="chitiethoadon" />
+    <NavigationProperty Name="phieuthue" Relationship="QLKhachSanModel.hoadon_HoaDon_PhieuThue" FromRole="hoadon" ToRole="phieuthue" />
+    <NavigationProperty Name="taikhoan" Relationship="QLKhachSanModel.hoadon_HoaDon_TaiKhoan" FromRole="hoadon" ToRole="taikhoan" />
+  </EntityType>
+  <EntityType Name="khachhang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiKhach" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="loaikhach1" Relationship="QLKhachSanModel.khachhang_KhachHang_LoaiKhach" FromRole="khachhang" ToRole="loaikhach" />
+    <NavigationProperty Name="phieuthue" Relationship="QLKhachSanModel.phieuthue_PhieuThue_KhachHang" FromRole="khachhang" ToRole="phieuthue" />
+  </EntityType>
+  <EntityType Name="loaikhach">
+    <Key>
+      <PropertyRef Name="LoaiKhach1" />
+    </Key>
+    <Property Name="LoaiKhach1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HeSo" Type="Single" />
+    <NavigationProperty Name="khachhang" Relationship="QLKhachSanModel.khachhang_KhachHang_LoaiKhach" FromRole="loaikhach" ToRole="khachhang" />
+  </EntityType>
+  <EntityType Name="loaiphong">
+    <Key>
+      <PropertyRef Name="LoaiPhong1" />
+    </Key>
+    <Property Name="LoaiPhong1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Single" />
+    <Property Name="SLKhachToiDa" Type="Int32" />
+    <NavigationProperty Name="doanhthu" Relationship="QLKhachSanModel.doanhthu_DoanhThu_LoaiPhong" FromRole="loaiphong" ToRole="doanhthu" />
+    <NavigationProperty Name="phong" Relationship="QLKhachSanModel.phong_Phong_LoaiPhong" FromRole="loaiphong" ToRole="phong" />
+  </EntityType>
+  <EntityType Name="matdosudung">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhong" Type="Int32" Nullable="false" />
+    <Property Name="Thang" Type="DateTime" Precision="0" />
+    <Property Name="SoNgayThue" Type="Int32" />
+    <Property Name="MatDoSuDung1" Type="Single" />
+    <NavigationProperty Name="phong" Relationship="QLKhachSanModel.matdosudung_MatDoSuDung_Phong" FromRole="matdosudung" ToRole="phong" />
+  </EntityType>
+  <EntityType Name="phieuthue">
+    <Key>
+      <PropertyRef Name="MaPhieuThue" />
+    </Key>
+    <Property Name="MaPhieuThue" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayThue" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MaKH" Type="Int32" Nullable="false" />
+    <Property Name="NVTao" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTraPhong" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TinhTrang" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="chitietphieuthue" Relationship="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_PhieuThue" FromRole="phieuthue" ToRole="chitietphieuthue" />
+    <NavigationProperty Name="hoadon" Relationship="QLKhachSanModel.hoadon_HoaDon_PhieuThue" FromRole="phieuthue" ToRole="hoadon" />
+    <NavigationProperty Name="khachhang" Relationship="QLKhachSanModel.phieuthue_PhieuThue_KhachHang" FromRole="phieuthue" ToRole="khachhang" />
+    <NavigationProperty Name="taikhoan" Relationship="QLKhachSanModel.phieuthue_PhieuThue_TaiKhoan" FromRole="phieuthue" ToRole="taikhoan" />
+  </EntityType>
+  <EntityType Name="phong">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhong" Type="Int32" Nullable="false" />
+    <Property Name="TinhTrang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiPhong" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="chitietphieuthue" Relationship="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_Phong" FromRole="phong" ToRole="chitietphieuthue" />
+    <NavigationProperty Name="chitiethoadon" Relationship="QLKhachSanModel.chitiethoadon_FK_ChiTietHoaDon_Phong" FromRole="phong" ToRole="chitiethoadon" />
+    <NavigationProperty Name="loaiphong1" Relationship="QLKhachSanModel.phong_Phong_LoaiPhong" FromRole="phong" ToRole="loaiphong" />
+    <NavigationProperty Name="matdosudung" Relationship="QLKhachSanModel.matdosudung_MatDoSuDung_Phong" FromRole="phong" ToRole="matdosudung" />
+  </EntityType>
+  <EntityType Name="phuthu">
+    <Key>
+      <PropertyRef Name="LoaiPhuThu" />
+    </Key>
+    <Property Name="LoaiPhuThu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MucPhuThu" Type="Single" />
+    <NavigationProperty Name="chitietphieuthue" Relationship="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_PhuThu" FromRole="phuthu" ToRole="chitietphieuthue" />
+    <NavigationProperty Name="chitiethoadon" Relationship="QLKhachSanModel.chitiethoadon_FK_CTHoaDon_PhuThu" FromRole="phuthu" ToRole="chitiethoadon" />
+  </EntityType>
+  <EntityType Name="taikhoan">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="TenNV" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="Int64" />
+    <Property Name="SDT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVu" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="hoadon" Relationship="QLKhachSanModel.hoadon_HoaDon_TaiKhoan" FromRole="taikhoan" ToRole="hoadon" />
+    <NavigationProperty Name="phieuthue" Relationship="QLKhachSanModel.phieuthue_PhieuThue_TaiKhoan" FromRole="taikhoan" ToRole="phieuthue" />
+  </EntityType>
+  <Association Name="chitietphieuthue_FK_CTPhieuThue_PhieuThue">
+    <End Type="QLKhachSanModel.phieuthue" Role="phieuthue" Multiplicity="1" />
+    <End Type="QLKhachSanModel.chitietphieuthue" Role="chitietphieuthue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phieuthue">
+        <PropertyRef Name="MaPhieuThue" />
+      </Principal>
+      <Dependent Role="chitietphieuthue">
+        <PropertyRef Name="MaPhieuThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="chitietphieuthue_FK_CTPhieuThue_Phong">
+    <End Type="QLKhachSanModel.phong" Role="phong" Multiplicity="1" />
+    <End Type="QLKhachSanModel.chitietphieuthue" Role="chitietphieuthue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phong">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="chitietphieuthue">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="chitietphieuthue_FK_CTPhieuThue_PhuThu">
+    <End Type="QLKhachSanModel.phuthu" Role="phuthu" Multiplicity="0..1" />
+    <End Type="QLKhachSanModel.chitietphieuthue" Role="chitietphieuthue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phuthu">
+        <PropertyRef Name="LoaiPhuThu" />
+      </Principal>
+      <Dependent Role="chitietphieuthue">
+        <PropertyRef Name="PhuThu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="chitiethoadon_FK_CTHoaDon_PhuThu">
+    <End Type="QLKhachSanModel.phuthu" Role="phuthu" Multiplicity="1" />
+    <End Type="QLKhachSanModel.chitiethoadon" Role="chitiethoadon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phuthu">
+        <PropertyRef Name="LoaiPhuThu" />
+      </Principal>
+      <Dependent Role="chitiethoadon">
+        <PropertyRef Name="PhuThu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="chitiethoadon_FK_ChiTietHoaDon_HoaDon">
+    <End Type="QLKhachSanModel.hoadon" Role="hoadon" Multiplicity="1" />
+    <End Type="QLKhachSanModel.chitiethoadon" Role="chitiethoadon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hoadon">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="chitiethoadon">
+        <PropertyRef Name="MaHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="chitiethoadon_FK_ChiTietHoaDon_Phong">
+    <End Type="QLKhachSanModel.phong" Role="phong" Multiplicity="1" />
+    <End Type="QLKhachSanModel.chitiethoadon" Role="chitiethoadon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phong">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="chitiethoadon">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="doanhthu_DoanhThu_LoaiPhong">
+    <End Type="QLKhachSanModel.loaiphong" Role="loaiphong" Multiplicity="1" />
+    <End Type="QLKhachSanModel.doanhthu" Role="doanhthu" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="loaiphong">
+        <PropertyRef Name="LoaiPhong1" />
+      </Principal>
+      <Dependent Role="doanhthu">
+        <PropertyRef Name="LoaiPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="hoadon_HoaDon_PhieuThue">
+    <End Type="QLKhachSanModel.phieuthue" Role="phieuthue" Multiplicity="0..1" />
+    <End Type="QLKhachSanModel.hoadon" Role="hoadon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phieuthue">
+        <PropertyRef Name="MaPhieuThue" />
+      </Principal>
+      <Dependent Role="hoadon">
+        <PropertyRef Name="MaPhieuThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="hoadon_HoaDon_TaiKhoan">
+    <End Type="QLKhachSanModel.taikhoan" Role="taikhoan" Multiplicity="0..1" />
+    <End Type="QLKhachSanModel.hoadon" Role="hoadon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taikhoan">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="hoadon">
+        <PropertyRef Name="NVTao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="khachhang_KhachHang_LoaiKhach">
+    <End Type="QLKhachSanModel.loaikhach" Role="loaikhach" Multiplicity="1" />
+    <End Type="QLKhachSanModel.khachhang" Role="khachhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loaikhach">
+        <PropertyRef Name="LoaiKhach1" />
+      </Principal>
+      <Dependent Role="khachhang">
+        <PropertyRef Name="LoaiKhach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="phieuthue_PhieuThue_KhachHang">
+    <End Type="QLKhachSanModel.khachhang" Role="khachhang" Multiplicity="1" />
+    <End Type="QLKhachSanModel.phieuthue" Role="phieuthue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khachhang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="phieuthue">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="phong_Phong_LoaiPhong">
+    <End Type="QLKhachSanModel.loaiphong" Role="loaiphong" Multiplicity="1" />
+    <End Type="QLKhachSanModel.phong" Role="phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loaiphong">
+        <PropertyRef Name="LoaiPhong1" />
+      </Principal>
+      <Dependent Role="phong">
+        <PropertyRef Name="LoaiPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="matdosudung_MatDoSuDung_Phong">
+    <End Type="QLKhachSanModel.phong" Role="phong" Multiplicity="1" />
+    <End Type="QLKhachSanModel.matdosudung" Role="matdosudung" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="phong">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="matdosudung">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="phieuthue_PhieuThue_TaiKhoan">
+    <End Type="QLKhachSanModel.taikhoan" Role="taikhoan" Multiplicity="0..1" />
+    <End Type="QLKhachSanModel.phieuthue" Role="phieuthue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taikhoan">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="phieuthue">
+        <PropertyRef Name="NVTao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

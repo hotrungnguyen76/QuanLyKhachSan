@@ -1,0 +1,179 @@
+﻿<Window x:Class="QuanLyKhachSan.Views.HoaDonView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKhachSan.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="HoaDonView"
+        Height="480"
+        Width="532.212"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        ResizeMode="NoResize">
+    <Border BorderThickness="1"
+            BorderBrush="#FF807D7D"
+            Background="White"
+            CornerRadius="30">
+        <Grid Margin="1,1,-1,-1">
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="7"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                
+
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Grid.Row="0"
+                       Text="HÓA ĐƠN"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       Foreground="#bf360c"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10" />
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Mã hóa đơn:"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           Margin="10 0 0 0" />
+                <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           Text="{Binding MaHoaDon}"
+                           FontSize="12"
+                           VerticalAlignment="Center" />
+
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Khách hàng/ Cơ quan:"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           Margin="10 0 0 0" />
+                <TextBlock Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding TenKH}"
+                           FontSize="12"
+                           VerticalAlignment="Center" />
+
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Địa chỉ:"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           Margin="10 0 0 0" />
+                <TextBlock Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding DiaChi}"
+                           FontSize="12"
+                           VerticalAlignment="Center" />
+
+                <TextBlock Grid.Row="3"
+                           Grid.Column="0"
+                           Text="Ngày thanh toán:"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           Margin="10 0 0 0" />
+                <TextBlock Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding Today}"
+                           FontSize="12"
+                           VerticalAlignment="Center" />
+                <!--<Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="320"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <TextBlock Text="Ngày lập hóa đơn: "
+                                   FontSize="13"
+                                   VerticalAlignment="Center"
+                                   Margin="10 -60 0 0" />
+                        <TextBlock Text="Mã hóa đơn:"
+                                   FontSize="13"
+                                   VerticalAlignment="Center"
+                                   Margin="10 0 0 0" />
+                        <TextBlock Text="Nhân viên:"
+                                   FontSize="13"
+                                   VerticalAlignment="Center"
+                                   Margin="10 60 0 0" />
+                    </Grid>
+
+                </Grid>-->
+            </Grid>
+            <TextBlock Grid.Row="2"
+                       Text="Danh sách phòng"
+                       FontWeight="Bold"
+                       Foreground="#bf360c"
+                       Margin="10 0 0 0" />
+            <ListView Grid.Row="3"
+                      ItemsSource="{Binding RoomPaymentInfoList}"
+                      Width="Auto"
+                      Margin="10 0 0 0">
+                <ListView.View>
+                    <GridView x:Name="SelectedRoomLV">
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="Width"
+                                        Value="Auto" />
+                                <Setter Property="Foreground"
+                                        Value="Black" />
+                                <Setter Property="FontWeight"
+                                        Value="Bold" />
+                                <Setter Property="Padding"
+                                        Value="10,5,10,5"></Setter>
+
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+
+                        <GridViewColumn DisplayMemberBinding="{Binding SoPhong}"
+                                        Header="Phòng" />
+                        <GridViewColumn DisplayMemberBinding="{Binding LoaiPhong}"
+                                        Header="Loại phòng" />
+                        <GridViewColumn DisplayMemberBinding="{Binding DonGia}"
+                                        Header="Đơn giá" />
+                        <GridViewColumn DisplayMemberBinding="{Binding SoNgayThue}"
+                                        Header="Số ngày ở" />
+                        <GridViewColumn DisplayMemberBinding="{Binding PhuThu}"
+                                        Header="Phụ thu" />
+                        <GridViewColumn DisplayMemberBinding="{Binding ThanhTien}"
+                                        Header="Thành tiền" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Grid Grid.Row="4"
+                  Margin="0,5,0,0">
+                <Grid Width="450"
+                      Background="Black"
+                      Opacity="0.5" />
+            </Grid>
+            <Grid Grid.Row="5">
+                <TextBlock Text="Tổng tiền: "
+                           FontSize="15"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

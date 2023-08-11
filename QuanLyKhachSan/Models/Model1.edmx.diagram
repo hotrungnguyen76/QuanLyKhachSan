@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e0db7213acfe4a1cafd5bb014dde0b9e" Name="Diagram1">
+        <EntityTypeShape EntityType="QLKhachSanModel.chitietphieuthue" Width="1.5" PointX="5.25" PointY="9.125" />
+        <EntityTypeShape EntityType="QLKhachSanModel.chitiethoadon" Width="1.5" PointX="8.25" PointY="9.25" />
+        <EntityTypeShape EntityType="QLKhachSanModel.doanhthu" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="QLKhachSanModel.hoadon" Width="1.5" PointX="6" PointY="5.125" />
+        <EntityTypeShape EntityType="QLKhachSanModel.khachhang" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="QLKhachSanModel.loaikhach" Width="1.5" PointX="1.5" PointY="14.75" />
+        <EntityTypeShape EntityType="QLKhachSanModel.loaiphong" Width="1.5" PointX="0.75" PointY="8.25" />
+        <EntityTypeShape EntityType="QLKhachSanModel.matdosudung" Width="1.5" PointX="5.25" PointY="16.25" />
+        <EntityTypeShape EntityType="QLKhachSanModel.phieuthue" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="QLKhachSanModel.phong" Width="1.5" PointX="3" PointY="9.25" />
+        <EntityTypeShape EntityType="QLKhachSanModel.phuthu" Width="1.5" PointX="4.125" PointY="13.5" />
+        <EntityTypeShape EntityType="QLKhachSanModel.taikhoan" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_PhieuThue" />
+        <AssociationConnector Association="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_Phong" />
+        <AssociationConnector Association="QLKhachSanModel.chitietphieuthue_FK_CTPhieuThue_PhuThu" />
+        <AssociationConnector Association="QLKhachSanModel.chitiethoadon_FK_CTHoaDon_PhuThu" />
+        <AssociationConnector Association="QLKhachSanModel.chitiethoadon_FK_ChiTietHoaDon_HoaDon" />
+        <AssociationConnector Association="QLKhachSanModel.chitiethoadon_FK_ChiTietHoaDon_Phong" />
+        <AssociationConnector Association="QLKhachSanModel.doanhthu_DoanhThu_LoaiPhong" />
+        <AssociationConnector Association="QLKhachSanModel.hoadon_HoaDon_PhieuThue" />
+        <AssociationConnector Association="QLKhachSanModel.hoadon_HoaDon_TaiKhoan" />
+        <AssociationConnector Association="QLKhachSanModel.khachhang_KhachHang_LoaiKhach" />
+        <AssociationConnector Association="QLKhachSanModel.phieuthue_PhieuThue_KhachHang" />
+        <AssociationConnector Association="QLKhachSanModel.phong_Phong_LoaiPhong" />
+        <AssociationConnector Association="QLKhachSanModel.matdosudung_MatDoSuDung_Phong" />
+        <AssociationConnector Association="QLKhachSanModel.phieuthue_PhieuThue_TaiKhoan" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

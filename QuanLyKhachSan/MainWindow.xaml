@@ -1,0 +1,307 @@
+﻿<Window x:Class="QuanLyKhachSan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKhachSan"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:usercontrols="clr-namespace:QuanLyKhachSan.UserControls"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Title="Trang chủ"
+        Height="600"
+        Width="830"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Name="Dashboard">
+
+
+    <Border CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--ControlBar-->
+            <usercontrols:ControlBarUC  Grid.Row="0"
+                                        Tag="{Binding Title, ElementName=Dashboard}"></usercontrols:ControlBarUC>
+
+            <!--MainView-->
+            <Grid Grid.Row="1"
+                  Background="{StaticResource MaterialDesignLightBackground}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <!--Menu-->
+                <Border Background="{StaticResource MaterialDesignDarkBackground}"
+                        Grid.Column="0"
+                        Margin="0,25,0,0"
+                        CornerRadius="0,80,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0"
+                                    Orientation="Vertical">
+                            <Border Width="60"
+                                    Height="60"
+                                    Margin="-70,-30,0,0"
+                                    BorderThickness="3"
+                                    BorderBrush="White"
+                                    CornerRadius="50">
+                                <Ellipse>
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="./Images/avatar.jpg"></ImageBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                            </Border>
+                            <TextBlock Foreground="White"
+                                       FontSize="15"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,15,0,0"
+                                       Text="Trung Nguyên"></TextBlock>
+                            <TextBlock Foreground="White"
+                                       FontSize="12"
+                                       HorizontalAlignment="Center"
+                                       Text="Quản lý"></TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1"
+                                    Orientation="Vertical"
+                                    Margin="0,15,0,0">
+                            
+                            <Button Name="Btn1"
+                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="auto"
+                                    Margin="10,0,10,3"
+                                    Background="{StaticResource MaterialDesignDarkBackground}"
+                                    BorderBrush="Transparent"
+                                    Command="{Binding LoadDashboard}"
+                                    CommandParameter="{Binding ElementName=MainContent}"
+                                   >
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Home"
+                                                             Margin="0,0,10,0"
+                                                             VerticalAlignment="Center"
+                                                             Grid.Column="0" />
+                                    <TextBlock Grid.Column="1">Trang chủ</TextBlock>
+                                </Grid>
+                            </Button>
+
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="auto"
+                                    Margin="10,0,10,3"
+                                    Background="{StaticResource MaterialDesignDarkBackground}"
+                                    BorderBrush="Transparent"
+                                    Command="{Binding LoadDatPhong}"
+                                    CommandParameter="{Binding ElementName=MainContent}">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Door"
+                                                             Margin="0,0,10,0"
+                                                             VerticalAlignment="Center"
+                                                             Grid.Column="0" />
+                                    <TextBlock Grid.Column="1">Đặt phòng</TextBlock>
+                                </Grid>
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="auto"
+                                    Margin="10,0,10,3"
+                                    Background="{StaticResource MaterialDesignDarkBackground}"
+                                    BorderBrush="Transparent"
+                                    Command="{Binding LoadRoom}"
+                                    CommandParameter="{Binding ElementName=MainContent}">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="City"
+                                                             Margin="0,0,10,0"
+                                                             VerticalAlignment="Center"
+                                                             Grid.Column="0" />
+                                    <TextBlock Grid.Column="1">Phòng</TextBlock>
+                                </Grid>
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="auto"
+                                    Margin="10,0,10,3"
+                                    Background="{StaticResource MaterialDesignDarkBackground}"
+                                    BorderBrush="Transparent"
+                                    Command="{Binding LoadPhieuThue}"
+                                    CommandParameter="{Binding ElementName=MainContent}">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="ClipboardMultipleOutline"
+                                                             Margin="0,0,10,0"
+                                                             VerticalAlignment="Center"
+                                                             Grid.Column="0" />
+                                    <TextBlock Grid.Column="1">Phiếu thuê</TextBlock>
+                                </Grid>
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="auto"
+                                    Margin="10,0,10,3"
+                                    Background="{StaticResource MaterialDesignDarkBackground}"
+                                    BorderBrush="Transparent"
+                                    Command="{Binding LoadHistory}"
+                                    CommandParameter="{Binding ElementName=MainContent}">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Cards"
+                                                             Margin="0,0,10,0"
+                                                             VerticalAlignment="Center"
+                                                             Grid.Column="0" />
+                                    <TextBlock Grid.Column="1">Hóa đơn</TextBlock>
+                                </Grid>
+                            </Button>
+
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="auto"
+                                    Margin="10,0,10,3"
+                                    Background="{StaticResource MaterialDesignDarkBackground}"
+                                    BorderBrush="Transparent"
+                                    Command="{Binding LoadCustomer}"
+                                    CommandParameter="{Binding ElementName=MainContent}">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="BadgeAccountHorizontal"
+                                                             Margin="0,0,10,0"
+                                                             VerticalAlignment="Center"
+                                                             Grid.Column="0" />
+                                    <TextBlock Grid.Column="1">Khách hàng</TextBlock>
+                                </Grid>
+                            </Button>
+
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="auto"
+                                    Margin="10,0,10,3"
+                                    Background="{StaticResource MaterialDesignDarkBackground}"
+                                    BorderBrush="Transparent"
+                                    Command="{Binding LoadCustom}"
+                                    CommandParameter="{Binding ElementName=MainContent}">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="CogOutline"
+                                                             Margin="0,0,10,0"
+                                                             VerticalAlignment="Center"
+                                                             Grid.Column="0" />
+                                    <TextBlock Grid.Column="1">Tùy chỉnh</TextBlock>
+                                </Grid>
+                            </Button>
+
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="auto"
+                                    Margin="10,0,10,3"
+                                    Background="{StaticResource MaterialDesignDarkBackground}"
+                                    BorderBrush="Transparent"
+                                    Command="{Binding LoadReport}"
+                                    CommandParameter="{Binding ElementName=MainContent}">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="ChartBar"
+                                                             Margin="0,0,10,0"
+                                                             VerticalAlignment="Center"
+                                                             Grid.Column="0" />
+                                    <TextBlock Grid.Column="1">Báo cáo</TextBlock>
+                                </Grid>
+                            </Button>
+
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Column="1"
+                      Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                Text="NCK Hotel"
+                                       FontSize="20"></TextBlock>
+                            <Button Grid.Column="1"
+                                Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                                    Width="120"
+                                    Margin="0,0,10,0"
+                                    Content="Đặt phòng"
+                                    Command="{Binding DatPhongCommand}"
+                                     />
+                        </Grid>
+                        
+
+                        <Separator Margin="10" />
+                    </StackPanel>
+
+                    
+
+                    <!--Content-->
+                    <!--<usercontrols:TrangChuUC Grid.Row="1"></usercontrols:TrangChuUC>-->
+                    <!--<usercontrols:KhachHangUC Grid.Row="1"></usercontrols:KhachHangUC>-->
+
+                    <UserControl Grid.Row="1"
+                                 Name="MainContent"
+                                 Height="Auto"
+                                 
+                                 VerticalAlignment="Top"
+                                 Content="{Binding SelectedContentVM}" />
+
+
+                </Grid>
+
+            </Grid>
+
+
+        </Grid>
+
+    </Border>
+</Window>

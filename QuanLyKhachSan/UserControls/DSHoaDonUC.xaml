@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="QuanLyKhachSan.UserControls.DSHoaDonUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:QuanLyKhachSan.UserControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0"
+                   RenderTransformOrigin="0.624,0.41">
+            <StackPanel DockPanel.Dock="Left"
+                        Orientation="Horizontal">
+                <ComboBox Name="FilterPropCB"
+                          materialDesign:HintAssist.Hint="Search"
+                          materialDesign:HintAssist.HintOpacity=".26"
+                          materialDesign:ComboBoxAssist.MaxLength="2"
+                          IsEditable="True"
+                          VerticalAlignment="Bottom"
+                          ItemsSource="{Binding ListFilterProperty}"
+                          Width="80"
+                          Text="Chọn">
+
+                </ComboBox>
+                <TextBox materialDesign:HintAssist.Hint="Nhập thông tin"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Width="100"
+                         Margin="5,0,0,-0.2"
+                         VerticalAlignment="Bottom"
+                         Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}"
+                        Height="23"
+                        VerticalAlignment="Bottom"
+                        FontSize="12"
+                        Foreground="Black"
+                        Content="Lọc"
+                        Margin="10,0,0,0"
+                        Command="{Binding FilterCommand}"
+                        CommandParameter="{Binding ElementName=FilterPropCB}" />
+            </StackPanel>
+
+
+
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Right">
+
+                <Button Content="Xem chi tiết"
+                        Width="Auto"
+                        Height="25"
+                        VerticalAlignment="Bottom"
+                        Command="{Binding DetailCommand}" />
+                <Button Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                        Background="{StaticResource MaterialDesignBackground}"
+                        Width="105"
+                        Height="25"
+                        FontSize="12"
+                        Margin="5,5,5,0"
+                        Content="Thanh toán"
+                        VerticalAlignment="Bottom"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding PaymentCommand}" />
+
+            </StackPanel>
+            <Canvas></Canvas>
+        </DockPanel>
+        <ListView Grid.Row="1"
+                  ItemsSource="{Binding ListPhieuThue}"
+                  SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding NgayThue}"
+                                    Header="Ngày thuê" />
+                    <GridViewColumn DisplayMemberBinding="{Binding NgayTraPhong}"
+                                    Header="Ngày trả phòng" />
+                    <GridViewColumn DisplayMemberBinding="{Binding khachhang.TenKH}"
+                                    Header="Tên khách hàng" />
+                    <GridViewColumn DisplayMemberBinding="{Binding khachhang.SDT}"
+                                    Header="Số DT" />
+                    <!--<GridViewColumn Header="Options">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox Width="100">
+                                    <ComboBoxItem Content="Test" />
+                                    <ComboBoxItem Content="Test2" />
+                                    <ComboBoxItem Content="Test3" />
+                                </ComboBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>-->
+
+                    <GridViewColumn DisplayMemberBinding="{Binding TinhTrang}"
+                                    Header="Tình trạng" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,357 @@
+﻿<UserControl x:Class="QuanLyKhachSan.UserControls.DatPhongUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyKhachSan.UserControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             
+             Background="Transparent"
+            
+             Height="500"
+             Width="950"
+             Name="PhieuThueWindow">
+    
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition  Height="50" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Text="ĐĂT PHÒNG"
+                       FontWeight="Bold"
+                       FontSize="30"
+                       Foreground="#bf360c"
+                       HorizontalAlignment="Center"
+                       Margin="20">
+            </TextBlock>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!--Thông tin khách hàng-->
+            <StackPanel Grid.Column="0"
+                        Orientation="Vertical"
+                        HorizontalAlignment="Center">
+                <TextBlock FontSize="20"
+                           FontWeight="Bold"
+                           Text="Thông tin khách hàng"
+                           Margin="0,10,0,20"
+                           Foreground="#bf360c"
+                           HorizontalAlignment="Center" />
+
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="materialDesign:PackIcon">
+                            <Setter Property="VerticalAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </Grid.Resources>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="0" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <materialDesign:PackIcon Kind="AccountEdit"
+                                             Height="25"
+                                             Width="25"
+                                             Grid.Column="0"
+                                             Grid.Row="0" />
+                    <materialDesign:PackIcon Kind="CardAccountDetailsOutline"
+                                             Height="25"
+                                             Width="25"
+                                             Grid.Column="0"
+                                             Grid.Row="1" />
+                    <materialDesign:PackIcon Kind="Phone"
+                                             Height="25"
+                                             Width="25"
+                                             Grid.Column="0"
+                                             Grid.Row="2" />
+                    <materialDesign:PackIcon Kind="MapMarkerRadius"
+                                             Height="25"
+                                             Width="25"
+                                             Grid.Column="0"
+                                             Grid.Row="3" />
+                    <materialDesign:PackIcon Kind="Earth"
+                                             Height="25"
+                                             Width="25"
+                                             Grid.Column="0"
+                                             Grid.Row="4" />
+                    <TextBox Grid.Row="0"
+                             Grid.Column="2"
+                             x:Name="txbHoTen"
+                             Margin="5,7,0,7"
+                             VerticalAlignment="Center"
+                             materialDesign:HintAssist.Hint="Nhập họ tên khách hàng"
+                             Text="{Binding TenKH, Mode=TwoWay}" />
+                    <TextBox Grid.Row="1"
+                             Grid.Column="2"
+                             x:Name="txbCCCD"
+                             MaxLength="12"
+                             Margin="5,7,0,7"
+                             VerticalAlignment="Center"
+                             materialDesign:HintAssist.Hint="Nhập CCCD"
+                             Text="{Binding CMND, Mode=TwoWay}" />
+                    <TextBox Grid.Row="2"
+                             Grid.Column="2"
+                             x:Name="txbSDT"
+                             MaxLength="10"
+                             Margin="5,7,0,7"
+                             VerticalAlignment="Center"
+                             materialDesign:HintAssist.Hint="Nhập SDT"
+                             Text="{Binding SDT, Mode=TwoWay}" />
+                    <TextBox Grid.Row="3"
+                             Grid.Column="2"
+                             x:Name="txbDiaChi"
+                             Margin="5,7,0,7"
+                             VerticalAlignment="Center"
+                             materialDesign:HintAssist.Hint="Nhập địa chỉ"
+                             Text="{Binding DiaChi, Mode=TwoWay}" />
+                    <ComboBox Grid.Row="4"
+                              Grid.Column="2"
+                              materialDesign:HintAssist.Hint="Chọn loại khách hàng"
+                              materialDesign:HintAssist.HintOpacity=".26"
+                              materialDesign:ComboBoxAssist.MaxLength="2"
+                              Margin="5,7,0,7"
+                              VerticalAlignment="Center"
+                              IsEditable="True"
+                              ItemsSource="{Binding LoaiKhachList, Mode=TwoWay}"
+                              SelectedValue="{Binding CMND, Mode=TwoWay}">
+
+                    </ComboBox>
+                </Grid>
+
+
+
+
+
+
+            </StackPanel>
+
+            <Canvas Grid.Column="1"
+                    Margin="10"
+                    Width="2"
+                    Background="Black"></Canvas>
+
+            <!--Thông tin đặt phòng-->
+            <Grid Grid.Column="2">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center">
+                            <TextBlock Text="Ngày thuê"
+                                       Foreground="#bf360c"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center" />
+                            <DatePicker Height="25"
+                                        VerticalAlignment="Top"
+                                        Width="115"
+                                        Margin="15,0,15,0"
+                                        DisplayDateStart="{x:Static sys:DateTime.Today}"
+                                        SelectedDate="{Binding CheckInDate}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center">
+                            <TextBlock Text="Ngày trả phòng"
+                                       Foreground="#bf360c"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center" />
+                            <DatePicker Height="25"
+                                        VerticalAlignment="Top"
+                                        Width="115"
+                                        Margin="15,0,15,0"
+                                        DisplayDateStart="{x:Static sys:DateTime.Today}"
+                                        SelectedDate="{Binding CheckOutDate}" />
+                        </StackPanel>
+                    </StackPanel>
+
+
+                    <TextBlock HorizontalAlignment="Center"
+                               Margin="15"
+                               FontSize="20"
+                               Foreground="#bf360c"
+                               FontWeight="Bold"> Danh sách phòng</TextBlock>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="215" />
+
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Danh sách phòng trống"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#bf360c"
+                                   FontWeight="DemiBold"
+                                   Width="139" />
+                        <TextBlock Grid.Row="0"
+                                   Grid.Column="2"
+                                   Text="Danh sách phòng đã chọn"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#bf360c"
+                                   FontWeight="DemiBold"
+                                   Width="152" />
+
+                        <ListView Grid.Column="0"
+                                  Grid.Row="1"
+                                  ItemsSource="{Binding AvailableRoomList}"
+                                  SelectedItem="{Binding LeftSelectedRoom, Mode=OneWayToSource}">
+
+
+                            <ListView.View>
+                                <GridView>
+                                    <GridView.ColumnHeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+
+                                            <Setter Property="Foreground"
+                                                    Value="Black" />
+                                            <Setter Property="FontWeight"
+                                                    Value="Bold" />
+                                            <Setter Property="Padding"
+                                                    Value="10,5,10,5"></Setter>
+
+                                        </Style>
+                                    </GridView.ColumnHeaderContainerStyle>
+                                    <GridViewColumn DisplayMemberBinding="{Binding MaPhong}"
+                                                    Header="Phòng" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding LoaiPhong}"
+                                                    Header="Loại phòng" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding loaiphong1.DonGia}"
+                                                    Header="Đơn giá" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <ListView Grid.Column="2"
+                                  ItemsSource="{Binding SelectedRoomList}"
+                                  SelectedItem="{Binding RightSelectedRoom, Mode=OneWayToSource}"
+                                  Grid.Row="1">
+                            <ListView.View>
+                                <GridView x:Name="SelectedRoomLV">
+                                    <GridView.ColumnHeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="Width"
+                                                    Value="Auto" />
+                                            <Setter Property="Foreground"
+                                                    Value="Black" />
+                                            <Setter Property="FontWeight"
+                                                    Value="Bold" />
+                                            <Setter Property="Padding"
+                                                    Value="10,5,10,5"></Setter>
+
+                                        </Style>
+                                    </GridView.ColumnHeaderContainerStyle>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Item1.MaPhong}"
+                                                    Header="Phòng" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Item1.LoaiPhong}"
+                                                    Header="Loại phòng" />
+                                    <GridViewColumn Header="SL khách">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox materialDesign:HintAssist.Hint="SL khách ở"
+                                                         TextAlignment="Center"
+                                                         Text="{Binding Item2, Mode=OneWay}">
+                                                </TextBox>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="Phụ thu">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <ComboBox materialDesign:HintAssist.Hint="Nếu có"
+                                                          ItemsSource="{Binding DataContext.ListPhuThu,RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                                                          SelectedItem="{Binding Item3, Mode=TwoWay}">
+                                                </ComboBox>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <StackPanel Grid.Column="1"
+                                    Orientation="Vertical"
+                                    VerticalAlignment="Center"
+                                    Height="50"
+                                    Grid.RowSpan="2">
+                            <Button Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                                    Width="80"
+                                    Height="20"
+                                    Margin="0,0,0,10"
+                                    FontSize="11"
+                                    FontWeight="DemiBold"
+                                    HorizontalAlignment="Center"
+                                    BorderBrush="Transparent"
+                                    ToolTip="Thuê thêm phòng"
+                                    Content="Thêm"
+                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                    Command="{Binding SelectRoom}" />
+                            <Button Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                                    Width="80"
+                                    Height="20"
+                                    FontSize="11"
+                                    Background="#d61a49"
+                                    HorizontalAlignment="Center"
+                                    BorderBrush="Transparent"
+                                    Foreground="White"
+                                    ToolTip="Xóa phòng đã chọn"
+                                    Content="Xóa"
+                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                    Command="{Binding RemoveSelectedRoom}" />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,30,0">
+            <TextBlock Text="{Binding Notification}" VerticalAlignment="Center" FontSize="15"  Foreground="Green" Margin="0,0,10,0"/>
+            <Button Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Width="120"
+                    Margin="0,0,20,0"
+                    Background="#bf360c"
+                    BorderBrush="Transparent"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Content="Đặt phòng"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Command="{Binding CreateCommand}"
+                    CommandParameter="{Binding ElementName=PhieuThueWindow}" />
+            
+        </StackPanel>
+    </Grid>
+    
+</UserControl>
